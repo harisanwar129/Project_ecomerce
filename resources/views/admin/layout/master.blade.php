@@ -192,10 +192,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ asset('static/dist/img/haris.jpg') }}" class="img-circle" alt="User Image">
+          <img src="{{ Auth::user()->photo }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Haris Anwar</p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Bebas Dongs</a>
         </div>
       </div>
