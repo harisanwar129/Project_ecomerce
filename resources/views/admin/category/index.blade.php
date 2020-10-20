@@ -28,21 +28,21 @@
                   <td>{{ $no++ }}</td>
                   <td>{{ $category->name}}</td>
                   <td>
-                  <ul>
+                 <ul>
                   @foreach($category->children as $subcategory)
-                  <li>{{ $subcategory->name }}</li> 
-                  @endforeach   
-                  </ul>
-                  </td>
-                  <td>
-                  <ul>
-                  @foreach($category->children as $subcategory)
-                  <li>{{ $subcategory->slug }}</li>
-                  @endforeach 
-                  </ul>
-                  </td>
-                </tr>
+               <li>{{ $subcategory->name }}</li>
                 @endforeach 
+                </ul>
+                </td>
+                <td>
+                 <ul>
+                  @foreach($category->children as $subcategory)
+               <li>{{ $subcategory->slug}}</li>
+                @endforeach 
+                </ul>
+                </td>
+                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
