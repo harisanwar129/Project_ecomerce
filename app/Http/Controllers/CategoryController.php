@@ -10,4 +10,8 @@ class CategoryController extends Controller
             $categorys=Category::where('parent_id',null)->get();
         return view('admin.category.index',compact('categorys'));
     }
+    public function store(Request $request){
+        return $request->all();
+
+    }
 }
