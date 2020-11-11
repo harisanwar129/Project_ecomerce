@@ -82,7 +82,7 @@
               </table>
             </div>
             <!-- /.box-body -->
-          </div>
+          </div> 
           </div>
         </div> 
           <!-- /.box -->
