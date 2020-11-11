@@ -19,7 +19,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{route('admin/category)}}  ">
+            <form role="form" action="{{route('admin.category')}}  ">
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
@@ -32,6 +32,7 @@
                 <div class="form-group">
                   <label for="exampleInputFile">Parent_Category</label>
                   <select name="parent_id"  class="form-control">
+                  <option value="">Select</option>
                       @foreach($categorys as $category)
                       <option value="{{$category->id}}">{{$category->name}}</option>
                       @endforeach
@@ -71,7 +72,7 @@
                   <td>{{ $category->name}}</td>
                  <ul>
                   @foreach($category->children as $subcategory)
-               <li class="table_list">{{ $subcategory->name }}</li>
+               <li class="table_list">- {{ $subcategory->name }}</li>
                 @endforeach 
                 </ul>
                 </td>
@@ -83,13 +84,12 @@
             <!-- /.box-body -->
           </div>
           </div>
-        </div>
-        
+        </div> 
           <!-- /.box -->
         @endsection
         @section('footer')
-        <!-- DataTables -->
-            <script src="{{ asset('static/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+           <!-- DataTables -->
+           <script src="{{ asset('static/plugins/datatables/jquery.dataTables.min.js') }}"></script>
             <script src="{{ asset('static/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
             <script>
   $(function () {
