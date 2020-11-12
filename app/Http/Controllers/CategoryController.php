@@ -11,7 +11,13 @@ class CategoryController extends Controller
         return view('admin.category.index',compact('categorys'));
     }
     public function store(Request $request){
-        return $request->all();
+       $categorys= new Category;
+       $categorys->slug=$request->slug;
+       $categorys->name=$request->name;
+       $categorys->parent_id=$request->parent_id;
+       $categorys->icon=$request->icon;
+       $categorys->save();
+       return redirect()->back();
 
     }
 }

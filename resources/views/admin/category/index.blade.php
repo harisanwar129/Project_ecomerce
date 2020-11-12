@@ -6,7 +6,7 @@
 .table_list{
   list-style:none;
   padding:3px;
-  margin-left:-30px;
+  margin-left:20px;
 }
 </style>
 @endsection
@@ -19,7 +19,8 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{route('admin.category')}}  ">
+            <form role="form" action="{{route('admin.category')}} " method="POST">
+            {{ csrf_field() }}
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
@@ -30,9 +31,13 @@
                   <input type="text" class="form-control" placeholder="Enter Slug" name="slug"> 
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputEmail1">Icon</label>
+                  <input type="text" class="form-control" placeholder="Enter icon" name="icon"> 
+                </div>
+                <div class="form-group">
                   <label for="exampleInputFile">Parent_Category</label>
                   <select name="parent_id"  class="form-control">
-                  <option value="">Select</option>
+                     <option value="">Select</option>
                       @foreach($categorys as $category)
                       <option value="{{$category->id}}">{{$category->name}}</option>
                       @endforeach
@@ -48,7 +53,7 @@
             </form>
           </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Kategori</h3>
@@ -69,10 +74,9 @@
                 @foreach($categorys as $category)
                 <tr>
                   <td width="40px">{{ $no++ }}</td>
-                  <td>{{ $category->name}}</td>
-                 <ul>
+                  <td>{{ $category->name}}
                   @foreach($category->children as $subcategory)
-               <li class="table_list">- {{ $subcategory->name }}</li>
+               <li class="table_list" >-{{ $subcategory->name }}</li>
                 @endforeach 
                 </ul>
                 </td>
@@ -82,9 +86,10 @@
               </table>
             </div>
             <!-- /.box-body -->
-          </div> 
           </div>
-        </div> 
+          </div>
+        </div>
+        
           <!-- /.box -->
         @endsection
         @section('footer')
@@ -105,4 +110,5 @@
   });
 </script>
         @endsection
+     
 @show
