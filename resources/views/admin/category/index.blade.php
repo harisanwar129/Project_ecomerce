@@ -81,22 +81,26 @@
                 @endforeach 
                 </ul>
                 </td>
-                  <td ><a href="{{url('admin/category/'.$category->id.'/edit')}}">Edit</a>
+              <td>
+                <form action="{{route('category.destroy',$category->id)}}" method="post">
+               <a href="{{url('admin/category/'.$category->id.'/edit')}}" class="btn btn-primary btn-xs">Edit</a>
+                  {{ csrf_field() }}
+                  {{ method_field('DELETE') }}
+<input type="submit" name="" value="Delete" class="btn btn-danger btn-xs">
+                  </form>
                   <ul>
                @foreach($category->children as $subcategory)
-               <li class="table_list" style="margin-left:-43px" ><a href="{{url('admin/category/'.$subcategory->id.'/edit')}}">Edit</a></li>
+               <form action="{{route('category.destroy',$subcategory->id)}}" method="post"><li class="table_list" style="margin-left:-43px" ><a href="{{url('admin/category/'.$subcategory->id.'/edit')}}" class="btn btn-primary btn-xs">Edit</a>
+                  {{csrf_field()}}
+                  {{method_field('DELETE')}}
+<input type="submit" name="" value="Delete" class="btn btn-danger btn-xs">
+                  </form>
+               </li>
                 @endforeach 
                 </ul>
                 </td>
                 
-                  <!-- <td>
-                  <ul>
-               @foreach($category->children as $subcategory)
-               <li class="table_list" style="margin-left:-43px" ><a href="{{url('admin/category/'.$category->id.'/edit')}}">Edit</a></li>
-               <li class="table_list" style="margin-left:-43px" ><a href="{{url('admin/category/'.$subcategory->id.'/edit')}}">Edit</a></li>
-                @endforeach 
-                </ul>
-                </td> -->
+
                 </tr>
                 @endforeach 
                 </tbody>
