@@ -69,7 +69,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="{{ asset('static/dist/img/haris.jpg') }}" class="img-circle" alt="User Image">
+                        <img src="{{ url(Auth::user()->photo) }}" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -140,16 +140,16 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ asset('static/dist/img/haris.jpg') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">Haris Anwar</span>
+              <img src="{{ url(Auth::user()->photo) }}" class="user-image" alt="User Image">
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{ asset('static/dist/img/haris.jpg') }}" class="img-circle" alt="User Image">
+                <img src="{{ url(Auth::user()->photo) }}" class="img-circle" alt="User Image">
 
                 <p>
-                  Haris Anwar
+                 {{ Auth::user()->name }}
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -197,7 +197,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{ Auth::user()->photo }}" class="img-circle" alt="User Image">
+          <img src="{{ url(Auth::user()->photo) }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
@@ -221,9 +221,19 @@
         <li class="treeview">
           <a href="#">
             <li class="active"><a href=""><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-            <li><a href=""><i class="fa fa-dashboard"></i> <span>Category</span></a></li>
-            <li><a href=""><i class="fa fa-dashboard"></i> <span>Product</span></a></li>
-            </li>
+            <li><a href="{{ route('category.index') }}"><i class="fa fa-dashboard"></i> <span>Category</span></a></li>
+            
+            <li class="treeview ">
+          <a href="#">
+            <i class="fa fa-folder"></i> <span>Product</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('product.index')}}"><i class="fa fa-circle-o"></i> List Transaksi</a></li>
+            <li><a href="profile.html"><i class="fa fa-circle-o"></i> Add Product </a></li>
+        </li>
             <li class="treeview ">
           <a href="#">
             <i class="fa fa-folder"></i> <span>Transaction</span>

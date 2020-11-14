@@ -9,6 +9,19 @@
   margin-left:-40px;
 }
 </style>
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
 @endsection
         @section('body')
         <div class="row">
@@ -117,19 +130,7 @@
            <!-- DataTables -->
            <script src="{{ asset('static/plugins/datatables/jquery.dataTables.min.js') }}"></script>
             <script src="{{ asset('static/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-            <script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
+
         @endsection
      
 @show
