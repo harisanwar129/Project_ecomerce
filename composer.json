@@ -12,9 +12,8 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-      
+        "unisharp/laravel-filemanager": "^2.1",
         "uxweb/sweet-alert": "~1.4"
-        
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

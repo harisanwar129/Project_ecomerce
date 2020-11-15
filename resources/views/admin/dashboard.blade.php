@@ -1,5 +1,13 @@
 @extends('admin.layout.master')
 @section('header')
+<link rel="stylesheet" href="{{ asset('static/plugins/datatables/dataTables.bootstrap.css') }}">
+<style type="text/css">
+.table_list{
+  list-style:none;  
+  padding:3px;
+  margin-left:-40px;
+}
+</style>
 
 @endsection
         @section('body')
@@ -26,18 +34,6 @@
            <!-- DataTables -->
            <script src="{{ asset('static/plugins/datatables/jquery.dataTables.min.js') }}"></script>
             <script src="{{ asset('static/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
-            <script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
+            
         @endsection
 @show

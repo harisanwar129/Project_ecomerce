@@ -9,19 +9,7 @@
   margin-left:-40px;
 }
 </style>
-<script>
-  $(function () {
-    $("#example1").DataTable();
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false
-    });
-  });
-</script>
+
 @endsection
         @section('body')
         <div class="row">
@@ -40,6 +28,7 @@
                   <th>Photo</th>
                   <th>Product</th>
                   <th>Stok</th>
+                  <th>User</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -48,10 +37,13 @@
                 $no=1;
                 @endphp
                @foreach($product as $item)
+               <tr>
                         <td>{{$no++}}</td>
                         <td><img src="{{url($item->photo)}}" alt="" width="50px"></td>
                         <td>{{$item->name}}</td>
                         <td>{{$item->stock}}</td>
+                        <td>{{$item->user->name}}</td>
+                        </tr>
                @endforeach
                 </tbody>
               </table>

@@ -4,6 +4,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Harris System | Blank Page</title>
+  <link rel="stylesheet" href="{{ asset('static/plugins/datatables/dataTables.bootstrap.css') }}">
+<style type="text/css">
+.table_list{
+  list-style:none;  
+  padding:3px;
+  margin-left:-40px;
+}
+</style>
+
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -26,11 +35,13 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  
   <![endif]-->
+  
   @yield('header') 
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<script src="/pathto/js/sweetalert.js"></script>
+
 @include('sweet::alert')
 <!-- Site wrapper -->
 <div class="wrapper">
@@ -232,7 +243,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('product.index')}}"><i class="fa fa-circle-o"></i> List Transaksi</a></li>
-            <li><a href="profile.html"><i class="fa fa-circle-o"></i> Add Product </a></li>
+            <li><a href="{{route('product.create')}}"><i class="fa fa-circle-o"></i> Add Product </a></li>
         </li>
             <li class="treeview ">
           <a href="#">
@@ -522,6 +533,18 @@
 <script src="{{ asset('static/dist/js/app.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('static/dist/js/demo.js') }}"></script>
+<script src="{{ asset('static/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+            <script src="{{ asset('static/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+            <script>
+                      $('#example2').DataTable({
+  "paging": true,
+  "lengthChange": false,
+  "searching": false,
+  "ordering": true,
+  "info": true,
+  "autoWidth": false,
+columns:[{'data':'data','name':'name'}]});
+            </script>
 @yield('footer')
 </body>
 </html>
